@@ -1,31 +1,9 @@
-## ts-project
+## sync-engine
 
-Basic scaffolding for a new TypeScript project.
+Sync engine for building fast and scalable applications. 
 
-Includes:
+Based on Linear architecture (see: [Scaling the Linear Sync Engine](https://www.youtube.com/watch?v=Wo2m3jaJixU&t=215s)).
 
-* basic directory structure
-* typescript (& config)
-* eslint (& config)
-* test scaffolding
-* `ramda` (for convenience methods)
+Design doc: https://docs.google.com/document/d/1bRGZz7YL1sd_YNg3AiyfbPUT2cLwgcOtFyp1dcpaqGI/edit?usp=sharing
 
-### commands
-
-```sh
-$ npm run build 
-# alias for: npx tsc
-
-$ npm run watch 
-# alias for: npx tsc --watch
-
-$ npm run exec 
-# alias for: node dist/index.js
-
-$ npm run lint 
-# alias of: npx eslint src/ test/
-
-$ npm run test
-# alias of: npx jest
-# note: run `npx jest --watch` to rerun on changes
-```
+TODO...

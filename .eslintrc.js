@@ -10,7 +10,7 @@ module.exports = {
     'plugin:@typescript-eslint/stylistic',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'react'],
   root: true,
   ignorePatterns: ["dist/**/*"],
   rules: {
