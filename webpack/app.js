@@ -19,12 +19,4 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
-  devServer: {
-    static: [
-      { 
-        directory: path.resolve(__dirname, './public') 
-      },   
-    ],
-    port: 3000,
-  },
 };

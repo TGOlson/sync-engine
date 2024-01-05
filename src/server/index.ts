@@ -1,10 +1,7 @@
-import { add } from "./math";
+import { startServer } from "./server";
 
 const main = () => {
-  const num = add(1, 2);
-
-  console.log(`Result: ${num}`);
-  console.log('Done!');
+  startServer();
 };
 
 main();
