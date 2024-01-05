@@ -6,13 +6,14 @@ Based on Linear architecture (see: [Scaling the Linear Sync Engine](https://www.
 
 Design doc: https://docs.google.com/document/d/1bRGZz7YL1sd_YNg3AiyfbPUT2cLwgcOtFyp1dcpaqGI/edit?usp=sharing
 
-TODO...
+### dev
 
-### commands
+To start the application, simply run:
 
 ```sh
-$ npm run app:build
-$ npm run app:watch
-$ npm run server:build
-$ npm run server:watch
+$ docker compose up -d
 ```
+
+This command instantiates multiple docker containers, which install dependencies, build the app and server (watching for files changes), and run the node server.
+
+Alternatively, the application can be run locally without docker using `npm install` and varies commands detailed in `package.json`.
