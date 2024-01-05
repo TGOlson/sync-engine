@@ -3,14 +3,16 @@ import React from 'react';
 import { CssVarsProvider } from '@mui/joy/styles';
 import CssBaseline from '@mui/joy/CssBaseline';
 
-import HelloWorld from '../components/HelloWorld';
+import CreateTodo from '../components/CreateTodo';
+import TodoList from '../components/TodoList';
 
 const App = () => {
   return (
     <CssVarsProvider>
       <CssBaseline />
       
-      <HelloWorld />
+      <CreateTodo />
+      <TodoList />
     </CssVarsProvider>
   );
 };

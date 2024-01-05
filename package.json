@@ -9,6 +9,7 @@
     "server:build": "npx webpack --config webpack/common.js --config webpack/server.js --merge",
     "server:watch": "npx webpack watch --config webpack/common.js --config webpack/server.js --merge",
     "server:start-dev": "npx nodemon ./dist/server.bundle.js --watch ./dist/server.bundle.js",
+    "typecheck": "tsc --noEmit --watch",
     "clean": "rm -rf dist/",
     "test": "npx jest"
   },

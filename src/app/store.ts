@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import { logger } from 'redux-logger';
+import { logger } from 'redux-logger';
 
-import counterReducer from './slices/counter-slice';
+import todosReducer from './slices/todo-slice';
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    todos: todosReducer,
   },
-  // TODO: add back later?
-  // middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger)
+  // @ts-expect-error some error here with logger and redux toolkit typing
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
 });
 
 // Infer the `RootState` & `AppDispatch` types from the store
