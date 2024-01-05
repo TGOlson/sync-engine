@@ -4,10 +4,11 @@
   "description": "Basic scaffolding for a new TypeScript project",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
-    "watch": "npx tsc --watch",
-    "exec": "node dist/index.js",
-    "lint": "npx eslint src/ test/",
+    "app:build": "npx webpack --config webpack/common.js --config webpack/app.js --merge",
+    "app:watch": "npx webpack watch --config webpack/common.js --config webpack/app.js --merge",
+    "server:build": "npx webpack --config webpack/common.js --config webpack/server.js --merge",
+    "server:watch": "npx webpack watch --config webpack/common.js --config webpack/server.js --merge",
+    "clean": "rm -rf dist/",
     "test": "npx jest"
   },
   "repository": {
