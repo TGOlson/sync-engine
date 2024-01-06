@@ -7,15 +7,14 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  // TODO: move to env if not using defaults
-  url = "postgres://postgres:postgres@db:5432/postgres"
+  url      = env("DATABASE_URL")
 }
 
 model TodoItem {
-  id       Int     @id @default(autoincrement())
-  text     String
-  complete Boolean
-  hidden   Boolean
+  id        Int      @id @default(autoincrement())
+  text      String
+  complete  Boolean
+  hidden    Boolean
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
