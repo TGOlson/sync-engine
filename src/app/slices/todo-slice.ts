@@ -1,10 +1,11 @@
 import * as api from '../api';
 
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { PartialTodo, Todo } from '../../shared/types';
+import { CreateTodoItem } from '../../shared/types';
+import { TodoItem } from '@prisma/client';
 
 type State = {
-  todos: Todo[];
+  todos: TodoItem[];
 };
 
 const initialState: State = {
@@ -15,11 +16,11 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
   return await api.fetchTodos();
 });
 
-export const createTodo = createAsyncThunk('todos/createTodo', async (partialTodo: PartialTodo) => {
+export const createTodo = createAsyncThunk('todos/createTodo', async (partialTodo: CreateTodoItem) => {
   return await api.createTodo(partialTodo);
 });
 
-export const updateTodo = createAsyncThunk('todos/updateTodo', async ({id, update}: {id: number, update: Partial<Todo>}) => {
+export const updateTodo = createAsyncThunk('todos/updateTodo', async ({id, update}: {id: number, update: Partial<TodoItem>}) => {
   return await api.updateTodo(id, update);
 });
 
@@ -29,14 +30,14 @@ export const todos = createSlice({
   reducers: {
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchTodos.fulfilled, (state: State, action: PayloadAction<Todo[]>) => {
+    builder.addCase(fetchTodos.fulfilled, (state: State, action: PayloadAction<TodoItem[]>) => {
       state.todos = action.payload;
     });
     // Note: these updates only propagate on fulfillment, could probably do better optimistic updates...
-    builder.addCase(createTodo.fulfilled, (state: State, action: PayloadAction<Todo>) => {
+    builder.addCase(createTodo.fulfilled, (state: State, action: PayloadAction<TodoItem>) => {
       state.todos.push(action.payload);
     });
-    builder.addCase(updateTodo.fulfilled, (state: State, action: PayloadAction<Todo>) => {
+    builder.addCase(updateTodo.fulfilled, (state: State, action: PayloadAction<TodoItem>) => {
       const todo = state.todos.find(todo => todo.id === action.payload.id);
 
       if (todo) {

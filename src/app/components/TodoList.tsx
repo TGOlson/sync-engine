@@ -18,8 +18,8 @@ const TodoList = () => {
     }
   }, []);
 
-  const setCompleted = (id: number, completed: boolean) => {
-    dispatch(updateTodo({id, update: {completed}}));
+  const setComplete = (id: number, complete: boolean) => {
+    dispatch(updateTodo({id, update: {complete}}));
   };
   
   return (
@@ -31,10 +31,10 @@ const TodoList = () => {
             color="success" 
             size="lg" 
             variant="outlined" 
-            checked={todo.completed}  
-            onChange={e => setCompleted(todo.id, e.target.checked)}
+            checked={todo.complete}  
+            onChange={e => setComplete(todo.id, e.target.checked)}
           />
-          <Typography sx={{textDecoration: todo.completed ? 'line-through' : null}}>{todo.text}</Typography>
+          <Typography sx={{textDecoration: todo.complete ? 'line-through' : null}}>{todo.text}</Typography>
         </Card>
       ))}
     </Box>

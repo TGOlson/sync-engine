@@ -17,7 +17,7 @@ const CreateTodo = () => {
 
     dispatch(createTodo({
       text: todoText,
-      completed: false,
+      complete: false,
       hidden: false,
     }));
 

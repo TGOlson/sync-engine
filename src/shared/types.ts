@@ -1,8 +1,3 @@
-export type Todo = {
-  id: number;
-  text: string;
-  completed: boolean;
-  hidden: boolean;
-};
+import { TodoItem } from "@prisma/client";
 
-export type PartialTodo = Omit<Todo, 'id'>;
+export type CreateTodoItem = Omit<TodoItem, 'id' | 'createdAt' | 'updatedAt'>;
