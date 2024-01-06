@@ -34,7 +34,7 @@ $ npm run typecheck
 
 This project uses `prisma` as an ORM to manage db connections, create schemas and models, and run queries. It's pretty nifty and works quite well with TypeScript! See https://www.prisma.io/.
 
-In general `prisma` works as expected with the `docker compose` flow. However, there are two things to note. 
+In general `prisma` works as expected with the `docker compose` flow.
 
 1. To run a migration, connect to the `server` container and run:
 
