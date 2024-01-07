@@ -19,6 +19,8 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./public:/usr/share/nginx/html
       - dist:/usr/share/nginx/html/assets/js
+    depends_on:
+      - server
 
   # TODO: this will change to graphql soon, and another server for websockets/sync
   server:
