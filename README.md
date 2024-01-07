@@ -12,9 +12,9 @@ $ docker compose up -d
 
 This create four docker containers
 
-* `app-builder`: bundles app files, and watches for changes
-* `server-builder`: bundles server files, and watches for changes
-* `server`: runs server
+* `webpack`: bundles TS files, rebuilds on changes
+* `nginx`: serves static content, routes api requests to server
+* `server`: runs api server
 * `db`: manages a postgres instance
 
 To make changes to the app, simply modify files in `src`.
