@@ -1,25 +1,7 @@
 services:
-  
-  app-builder:
-    image: node:18-alpine
-    command: sh -c "npm install && npm run app:watch"
-    working_dir: /app
-    volumes:
-      - ./:/app
-      - dist:/app/dist
-      - node_modules:/app/node_modules
-  
-  server-builder:
-    image: node:18-alpine
-    command: sh -c "npm install && npm run server:watch"
-    working_dir: /app
-    volumes:
-      - ./:/app
-      - dist:/app/dist
-      - node_modules:/app/node_modules
-  
+
   db:
-    image: postgres
+    image: postgres:16-alpine
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -27,11 +9,21 @@ services:
     ports:
       - 5432:5432
     volumes: 
-          - db:/var/lib/postgresql/data
+      - db:/var/lib/postgresql/data
   
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./public:/usr/share/nginx/html
+      - dist:/usr/share/nginx/html/assets/js
+
+  # TODO: this will change to graphql soon, and another server for websockets/sync
   server:
     image: node:18-alpine
-    command: sh -c "npm install && npm run server:start-dev"
+    command: sh -c "npm install && npm run server-dev"
     ports:
       - 127.0.0.1:3000:3000
     working_dir: /app
@@ -40,9 +32,17 @@ services:
       - dist:/app/dist
       - node_modules:/app/node_modules
     depends_on:
-      - app-builder
-      - server-builder
+      - webpack
       - db
+
+  webpack:
+    image: node:18-alpine
+    command: sh -c "npm install && npm run watch"
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - dist:/app/dist
+      - node_modules:/app/node_modules
 
 volumes:
   dist:
