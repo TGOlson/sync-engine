@@ -37,13 +37,13 @@ const app = merge(common, {
   },
 });
 
-const server = merge(common, {
-  entry: path.resolve(__dirname, './src/server/index.ts'),
+const graphqlServer = merge(common, {
+  entry: path.resolve(__dirname, './src/graphql-server/index.ts'),
   mode: 'development',
   target: 'node',
   devtool: 'inline-source-map',
   output: {
-    filename: 'server.bundle.js',
+    filename: 'graphql-server.bundle.js',
     path: path.resolve(__dirname, './dist')
   },
   resolve: {
@@ -51,4 +51,4 @@ const server = merge(common, {
   },
 });
 
-module.exports = [app, server];
+module.exports = [app, graphqlServer];

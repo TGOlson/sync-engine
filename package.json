@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack watch",
-    "server": "node ./dist/server.bundle.js",
-    "server-dev": "npx nodemon ./dist/server.bundle.js --watch ./dist/server.bundle.js",
+    "graphql-server": "node ./dist/graphql-server.bundle.js",
+    "graphql-server-dev": "npx nodemon ./dist/graphql-server.bundle.js --watch ./dist/graphql-server.bundle.js",
     "typecheck": "tsc --noEmit --watch",
     "clean": "rm -rf dist/",
     "test": "npx jest"

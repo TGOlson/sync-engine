@@ -3,13 +3,14 @@ import { createServer } from "node:http";
 import { createYoga } from "graphql-yoga";
 import { buildSchema } from "type-graphql";
 import { PrismaClient } from '@prisma/client';
+
 import { resolvers } from "../../prisma/generated/type-graphql";
 
 const prisma = new PrismaClient();
 
 const PORT = 3000;
 
-export const startServer = async () => {
+const startServer = async () => {
   const schema = await buildSchema({
     resolvers: resolvers,
     validate: false,
@@ -26,3 +27,5 @@ export const startServer = async () => {
     console.log(`Server listening on port ${PORT}`);
   });
 };
+
+startServer();

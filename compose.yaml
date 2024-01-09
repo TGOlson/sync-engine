@@ -20,12 +20,11 @@ services:
       - ./public:/usr/share/nginx/html
       - dist:/usr/share/nginx/html/assets/js
     depends_on:
-      - server
+      - graphql-server
 
-  # TODO: this will change to graphql soon, and another server for websockets/sync
-  server:
+  graphql-server:
     image: node:18-alpine
-    command: sh -c "npm install && npm run server-dev"
+    command: sh -c "npm install && npm run graphql-server-dev"
     ports:
       - 127.0.0.1:3000:3000
     working_dir: /app
