@@ -10,6 +10,5 @@ export declare class StringFilter {
     contains?: string | undefined;
     startsWith?: string | undefined;
     endsWith?: string | undefined;
-    mode?: "default" | "insensitive" | undefined;
     not?: NestedStringFilter | undefined;
 }

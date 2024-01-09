@@ -1,5 +1,4 @@
 export { AggregateTodoItemArgs } from "./AggregateTodoItemArgs";
-export { CreateManyTodoItemArgs } from "./CreateManyTodoItemArgs";
 export { CreateOneTodoItemArgs } from "./CreateOneTodoItemArgs";
 export { DeleteManyTodoItemArgs } from "./DeleteManyTodoItemArgs";
 export { DeleteOneTodoItemArgs } from "./DeleteOneTodoItemArgs";

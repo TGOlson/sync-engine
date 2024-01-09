@@ -22,7 +22,6 @@ export { StringWithAggregatesFilter } from "./StringWithAggregatesFilter";
 export { TodoItemAvgOrderByAggregateInput } from "./TodoItemAvgOrderByAggregateInput";
 export { TodoItemCountOrderByAggregateInput } from "./TodoItemCountOrderByAggregateInput";
 export { TodoItemCreateInput } from "./TodoItemCreateInput";
-export { TodoItemCreateManyInput } from "./TodoItemCreateManyInput";
 export { TodoItemMaxOrderByAggregateInput } from "./TodoItemMaxOrderByAggregateInput";
 export { TodoItemMinOrderByAggregateInput } from "./TodoItemMinOrderByAggregateInput";
 export { TodoItemOrderByWithAggregationInput } from "./TodoItemOrderByWithAggregationInput";

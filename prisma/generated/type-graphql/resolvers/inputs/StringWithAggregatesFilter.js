@@ -6,7 +6,6 @@ const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const NestedIntFilter_1 = require("../inputs/NestedIntFilter");
 const NestedStringFilter_1 = require("../inputs/NestedStringFilter");
 const NestedStringWithAggregatesFilter_1 = require("../inputs/NestedStringWithAggregatesFilter");
-const QueryMode_1 = require("../../enums/QueryMode");
 let StringWithAggregatesFilter = class StringWithAggregatesFilter {
     equals;
     in;
@@ -18,7 +17,6 @@ let StringWithAggregatesFilter = class StringWithAggregatesFilter {
     contains;
     startsWith;
     endsWith;
-    mode;
     not;
     _count;
     _min;
@@ -85,12 +83,6 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], StringWithAggregatesFilter.prototype, "endsWith", void 0);
-tslib_1.__decorate([
-    TypeGraphQL.Field(_type => QueryMode_1.QueryMode, {
-        nullable: true
-    }),
-    tslib_1.__metadata("design:type", String)
-], StringWithAggregatesFilter.prototype, "mode", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => NestedStringWithAggregatesFilter_1.NestedStringWithAggregatesFilter, {
         nullable: true

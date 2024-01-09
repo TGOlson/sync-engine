@@ -4,7 +4,6 @@ exports.TodoItemCrudResolver = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const AggregateTodoItemArgs_1 = require("./args/AggregateTodoItemArgs");
-const CreateManyTodoItemArgs_1 = require("./args/CreateManyTodoItemArgs");
 const CreateOneTodoItemArgs_1 = require("./args/CreateOneTodoItemArgs");
 const DeleteManyTodoItemArgs_1 = require("./args/DeleteManyTodoItemArgs");
 const DeleteOneTodoItemArgs_1 = require("./args/DeleteOneTodoItemArgs");
@@ -27,13 +26,6 @@ let TodoItemCrudResolver = class TodoItemCrudResolver {
         return (0, helpers_1.getPrismaFromContext)(ctx).todoItem.aggregate({
             ...args,
             ...(0, helpers_1.transformInfoIntoPrismaArgs)(info),
-        });
-    }
-    async createManyTodoItem(ctx, info, args) {
-        const { _count } = (0, helpers_1.transformInfoIntoPrismaArgs)(info);
-        return (0, helpers_1.getPrismaFromContext)(ctx).todoItem.createMany({
-            ...args,
-            ...(_count && (0, helpers_1.transformCountFieldIntoSelectRelationsCount)(_count)),
         });
     }
     async createOneTodoItem(ctx, info, args) {
@@ -133,17 +125,6 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Object, Object, AggregateTodoItemArgs_1.AggregateTodoItemArgs]),
     tslib_1.__metadata("design:returntype", Promise)
 ], TodoItemCrudResolver.prototype, "aggregateTodoItem", null);
-tslib_1.__decorate([
-    TypeGraphQL.Mutation(_returns => AffectedRowsOutput_1.AffectedRowsOutput, {
-        nullable: false
-    }),
-    tslib_1.__param(0, TypeGraphQL.Ctx()),
-    tslib_1.__param(1, TypeGraphQL.Info()),
-    tslib_1.__param(2, TypeGraphQL.Args()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object, Object, CreateManyTodoItemArgs_1.CreateManyTodoItemArgs]),
-    tslib_1.__metadata("design:returntype", Promise)
-], TodoItemCrudResolver.prototype, "createManyTodoItem", null);
 tslib_1.__decorate([
     TypeGraphQL.Mutation(_returns => TodoItem_1.TodoItem, {
         nullable: false

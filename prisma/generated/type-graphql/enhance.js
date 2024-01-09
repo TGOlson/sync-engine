@@ -15,7 +15,6 @@ const crudResolversMap = {
 const actionResolversMap = {
     TodoItem: {
         aggregateTodoItem: actionResolvers.AggregateTodoItemResolver,
-        createManyTodoItem: actionResolvers.CreateManyTodoItemResolver,
         createOneTodoItem: actionResolvers.CreateOneTodoItemResolver,
         deleteManyTodoItem: actionResolvers.DeleteManyTodoItemResolver,
         deleteOneTodoItem: actionResolvers.DeleteOneTodoItemResolver,
@@ -31,11 +30,10 @@ const actionResolversMap = {
     }
 };
 const crudResolversInfo = {
-    TodoItem: ["aggregateTodoItem", "createManyTodoItem", "createOneTodoItem", "deleteManyTodoItem", "deleteOneTodoItem", "findFirstTodoItem", "findFirstTodoItemOrThrow", "todoItems", "todoItem", "getTodoItem", "groupByTodoItem", "updateManyTodoItem", "updateOneTodoItem", "upsertOneTodoItem"]
+    TodoItem: ["aggregateTodoItem", "createOneTodoItem", "deleteManyTodoItem", "deleteOneTodoItem", "findFirstTodoItem", "findFirstTodoItemOrThrow", "todoItems", "todoItem", "getTodoItem", "groupByTodoItem", "updateManyTodoItem", "updateOneTodoItem", "upsertOneTodoItem"]
 };
 const argsInfo = {
     AggregateTodoItemArgs: ["where", "orderBy", "cursor", "take", "skip"],
-    CreateManyTodoItemArgs: ["data", "skipDuplicates"],
     CreateOneTodoItemArgs: ["data"],
     DeleteManyTodoItemArgs: ["where"],
     DeleteOneTodoItemArgs: ["where"],
@@ -152,10 +150,9 @@ const inputsInfo = {
     TodoItemScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "id", "text", "complete", "hidden", "createdAt", "updatedAt"],
     TodoItemCreateInput: ["text", "complete", "hidden", "createdAt", "updatedAt"],
     TodoItemUpdateInput: ["text", "complete", "hidden", "createdAt", "updatedAt"],
-    TodoItemCreateManyInput: ["id", "text", "complete", "hidden", "createdAt", "updatedAt"],
     TodoItemUpdateManyMutationInput: ["text", "complete", "hidden", "createdAt", "updatedAt"],
     IntFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
-    StringFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not"],
+    StringFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not"],
     BoolFilter: ["equals", "not"],
     DateTimeFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
     TodoItemCountOrderByAggregateInput: ["id", "text", "complete", "hidden", "createdAt", "updatedAt"],
@@ -164,7 +161,7 @@ const inputsInfo = {
     TodoItemMinOrderByAggregateInput: ["id", "text", "complete", "hidden", "createdAt", "updatedAt"],
     TodoItemSumOrderByAggregateInput: ["id"],
     IntWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"],
-    StringWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not", "_count", "_min", "_max"],
+    StringWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not", "_count", "_min", "_max"],
     BoolWithAggregatesFilter: ["equals", "not", "_count", "_min", "_max"],
     DateTimeWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_min", "_max"],
     StringFieldUpdateOperationsInput: ["set"],

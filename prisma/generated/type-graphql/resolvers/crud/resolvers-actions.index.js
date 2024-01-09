@@ -1,10 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpsertOneTodoItemResolver = exports.UpdateOneTodoItemResolver = exports.UpdateManyTodoItemResolver = exports.GroupByTodoItemResolver = exports.FindUniqueTodoItemOrThrowResolver = exports.FindUniqueTodoItemResolver = exports.FindManyTodoItemResolver = exports.FindFirstTodoItemOrThrowResolver = exports.FindFirstTodoItemResolver = exports.DeleteOneTodoItemResolver = exports.DeleteManyTodoItemResolver = exports.CreateOneTodoItemResolver = exports.CreateManyTodoItemResolver = exports.AggregateTodoItemResolver = void 0;
+exports.UpsertOneTodoItemResolver = exports.UpdateOneTodoItemResolver = exports.UpdateManyTodoItemResolver = exports.GroupByTodoItemResolver = exports.FindUniqueTodoItemOrThrowResolver = exports.FindUniqueTodoItemResolver = exports.FindManyTodoItemResolver = exports.FindFirstTodoItemOrThrowResolver = exports.FindFirstTodoItemResolver = exports.DeleteOneTodoItemResolver = exports.DeleteManyTodoItemResolver = exports.CreateOneTodoItemResolver = exports.AggregateTodoItemResolver = void 0;
 var AggregateTodoItemResolver_1 = require("./TodoItem/AggregateTodoItemResolver");
 Object.defineProperty(exports, "AggregateTodoItemResolver", { enumerable: true, get: function () { return AggregateTodoItemResolver_1.AggregateTodoItemResolver; } });
-var CreateManyTodoItemResolver_1 = require("./TodoItem/CreateManyTodoItemResolver");
-Object.defineProperty(exports, "CreateManyTodoItemResolver", { enumerable: true, get: function () { return CreateManyTodoItemResolver_1.CreateManyTodoItemResolver; } });
 var CreateOneTodoItemResolver_1 = require("./TodoItem/CreateOneTodoItemResolver");
 Object.defineProperty(exports, "CreateOneTodoItemResolver", { enumerable: true, get: function () { return CreateOneTodoItemResolver_1.CreateOneTodoItemResolver; } });
 var DeleteManyTodoItemResolver_1 = require("./TodoItem/DeleteManyTodoItemResolver");

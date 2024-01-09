@@ -35,15 +35,35 @@ const app = merge(common, {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
+  devServer: {
+    static: [
+      {
+        publicPath: "/",
+        directory: path.join(__dirname, "public"),
+      },
+      {
+        publicPath: "/assets/js",
+        directory: path.join(__dirname, "dist"),
+      },
+    ],
+    proxy: {
+      "/api": "http://localhost:3000",
+    },
+    port: 8080,
+    historyApiFallback: true,
+    devMiddleware: {
+      writeToDisk: true,
+    },
+  },
 });
 
-const graphqlServer = merge(common, {
-  entry: path.resolve(__dirname, './src/graphql-server/index.ts'),
+const server = merge(common, {
+  entry: path.resolve(__dirname, './src/server/index.ts'),
   mode: 'development',
   target: 'node',
   devtool: 'inline-source-map',
   output: {
-    filename: 'graphql-server.bundle.js',
+    filename: 'server.bundle.js',
     path: path.resolve(__dirname, './dist')
   },
   resolve: {
@@ -51,4 +71,4 @@ const graphqlServer = merge(common, {
   },
 });
 
-module.exports = [app, graphqlServer];
+module.exports = [app, server];

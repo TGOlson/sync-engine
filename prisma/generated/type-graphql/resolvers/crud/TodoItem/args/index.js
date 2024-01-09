@@ -1,10 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpsertOneTodoItemArgs = exports.UpdateOneTodoItemArgs = exports.UpdateManyTodoItemArgs = exports.GroupByTodoItemArgs = exports.FindUniqueTodoItemOrThrowArgs = exports.FindUniqueTodoItemArgs = exports.FindManyTodoItemArgs = exports.FindFirstTodoItemOrThrowArgs = exports.FindFirstTodoItemArgs = exports.DeleteOneTodoItemArgs = exports.DeleteManyTodoItemArgs = exports.CreateOneTodoItemArgs = exports.CreateManyTodoItemArgs = exports.AggregateTodoItemArgs = void 0;
+exports.UpsertOneTodoItemArgs = exports.UpdateOneTodoItemArgs = exports.UpdateManyTodoItemArgs = exports.GroupByTodoItemArgs = exports.FindUniqueTodoItemOrThrowArgs = exports.FindUniqueTodoItemArgs = exports.FindManyTodoItemArgs = exports.FindFirstTodoItemOrThrowArgs = exports.FindFirstTodoItemArgs = exports.DeleteOneTodoItemArgs = exports.DeleteManyTodoItemArgs = exports.CreateOneTodoItemArgs = exports.AggregateTodoItemArgs = void 0;
 var AggregateTodoItemArgs_1 = require("./AggregateTodoItemArgs");
 Object.defineProperty(exports, "AggregateTodoItemArgs", { enumerable: true, get: function () { return AggregateTodoItemArgs_1.AggregateTodoItemArgs; } });
-var CreateManyTodoItemArgs_1 = require("./CreateManyTodoItemArgs");
-Object.defineProperty(exports, "CreateManyTodoItemArgs", { enumerable: true, get: function () { return CreateManyTodoItemArgs_1.CreateManyTodoItemArgs; } });
 var CreateOneTodoItemArgs_1 = require("./CreateOneTodoItemArgs");
 Object.defineProperty(exports, "CreateOneTodoItemArgs", { enumerable: true, get: function () { return CreateOneTodoItemArgs_1.CreateOneTodoItemArgs; } });
 var DeleteManyTodoItemArgs_1 = require("./DeleteManyTodoItemArgs");

@@ -1,6 +1,5 @@
 import type { GraphQLResolveInfo } from "graphql";
 import { AggregateTodoItemArgs } from "./args/AggregateTodoItemArgs";
-import { CreateManyTodoItemArgs } from "./args/CreateManyTodoItemArgs";
 import { CreateOneTodoItemArgs } from "./args/CreateOneTodoItemArgs";
 import { DeleteManyTodoItemArgs } from "./args/DeleteManyTodoItemArgs";
 import { DeleteOneTodoItemArgs } from "./args/DeleteOneTodoItemArgs";
@@ -19,7 +18,6 @@ import { AggregateTodoItem } from "../../outputs/AggregateTodoItem";
 import { TodoItemGroupBy } from "../../outputs/TodoItemGroupBy";
 export declare class TodoItemCrudResolver {
     aggregateTodoItem(ctx: any, info: GraphQLResolveInfo, args: AggregateTodoItemArgs): Promise<AggregateTodoItem>;
-    createManyTodoItem(ctx: any, info: GraphQLResolveInfo, args: CreateManyTodoItemArgs): Promise<AffectedRowsOutput>;
     createOneTodoItem(ctx: any, info: GraphQLResolveInfo, args: CreateOneTodoItemArgs): Promise<TodoItem>;
     deleteManyTodoItem(ctx: any, info: GraphQLResolveInfo, args: DeleteManyTodoItemArgs): Promise<AffectedRowsOutput>;
     deleteOneTodoItem(ctx: any, info: GraphQLResolveInfo, args: DeleteOneTodoItemArgs): Promise<TodoItem | null>;

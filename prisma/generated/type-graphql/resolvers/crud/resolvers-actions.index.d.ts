@@ -1,5 +1,4 @@
 export { AggregateTodoItemResolver } from "./TodoItem/AggregateTodoItemResolver";
-export { CreateManyTodoItemResolver } from "./TodoItem/CreateManyTodoItemResolver";
 export { CreateOneTodoItemResolver } from "./TodoItem/CreateOneTodoItemResolver";
 export { DeleteManyTodoItemResolver } from "./TodoItem/DeleteManyTodoItemResolver";
 export { DeleteOneTodoItemResolver } from "./TodoItem/DeleteOneTodoItemResolver";
