@@ -25,9 +25,9 @@ To make changes to the app, simply modify files in `src`.
 
 ### typechecking
 
-This project is configured to run a TypeScript typecheck on each build. If you have a type error, it will show up in the log for either the `app-builder` or `server-builder` containers. 
+This project is configured to run a TypeScript typecheck on each build. If you have a type error, it will show up in the log for the `webpack` container. 
 
-However, it's sometimes nicer to get that feedback locally (or even better, in your IDE). To do so simply install the node modules locally and optionally run typescript:
+However, it's sometimes nicer to get that feedback locally (or even better, in your IDE). To do so simply install the node modules locally (and optionally run typescript):
 
 ```sh
 $ npm install

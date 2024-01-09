@@ -1,0 +1,35 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregateTodoItemArgs } from "./args/AggregateTodoItemArgs";
+import { CreateManyTodoItemArgs } from "./args/CreateManyTodoItemArgs";
+import { CreateOneTodoItemArgs } from "./args/CreateOneTodoItemArgs";
+import { DeleteManyTodoItemArgs } from "./args/DeleteManyTodoItemArgs";
+import { DeleteOneTodoItemArgs } from "./args/DeleteOneTodoItemArgs";
+import { FindFirstTodoItemArgs } from "./args/FindFirstTodoItemArgs";
+import { FindFirstTodoItemOrThrowArgs } from "./args/FindFirstTodoItemOrThrowArgs";
+import { FindManyTodoItemArgs } from "./args/FindManyTodoItemArgs";
+import { FindUniqueTodoItemArgs } from "./args/FindUniqueTodoItemArgs";
+import { FindUniqueTodoItemOrThrowArgs } from "./args/FindUniqueTodoItemOrThrowArgs";
+import { GroupByTodoItemArgs } from "./args/GroupByTodoItemArgs";
+import { UpdateManyTodoItemArgs } from "./args/UpdateManyTodoItemArgs";
+import { UpdateOneTodoItemArgs } from "./args/UpdateOneTodoItemArgs";
+import { UpsertOneTodoItemArgs } from "./args/UpsertOneTodoItemArgs";
+import { TodoItem } from "../../../models/TodoItem";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateTodoItem } from "../../outputs/AggregateTodoItem";
+import { TodoItemGroupBy } from "../../outputs/TodoItemGroupBy";
+export declare class TodoItemCrudResolver {
+    aggregateTodoItem(ctx: any, info: GraphQLResolveInfo, args: AggregateTodoItemArgs): Promise<AggregateTodoItem>;
+    createManyTodoItem(ctx: any, info: GraphQLResolveInfo, args: CreateManyTodoItemArgs): Promise<AffectedRowsOutput>;
+    createOneTodoItem(ctx: any, info: GraphQLResolveInfo, args: CreateOneTodoItemArgs): Promise<TodoItem>;
+    deleteManyTodoItem(ctx: any, info: GraphQLResolveInfo, args: DeleteManyTodoItemArgs): Promise<AffectedRowsOutput>;
+    deleteOneTodoItem(ctx: any, info: GraphQLResolveInfo, args: DeleteOneTodoItemArgs): Promise<TodoItem | null>;
+    findFirstTodoItem(ctx: any, info: GraphQLResolveInfo, args: FindFirstTodoItemArgs): Promise<TodoItem | null>;
+    findFirstTodoItemOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstTodoItemOrThrowArgs): Promise<TodoItem | null>;
+    todoItems(ctx: any, info: GraphQLResolveInfo, args: FindManyTodoItemArgs): Promise<TodoItem[]>;
+    todoItem(ctx: any, info: GraphQLResolveInfo, args: FindUniqueTodoItemArgs): Promise<TodoItem | null>;
+    getTodoItem(ctx: any, info: GraphQLResolveInfo, args: FindUniqueTodoItemOrThrowArgs): Promise<TodoItem | null>;
+    groupByTodoItem(ctx: any, info: GraphQLResolveInfo, args: GroupByTodoItemArgs): Promise<TodoItemGroupBy[]>;
+    updateManyTodoItem(ctx: any, info: GraphQLResolveInfo, args: UpdateManyTodoItemArgs): Promise<AffectedRowsOutput>;
+    updateOneTodoItem(ctx: any, info: GraphQLResolveInfo, args: UpdateOneTodoItemArgs): Promise<TodoItem | null>;
+    upsertOneTodoItem(ctx: any, info: GraphQLResolveInfo, args: UpsertOneTodoItemArgs): Promise<TodoItem>;
+}
