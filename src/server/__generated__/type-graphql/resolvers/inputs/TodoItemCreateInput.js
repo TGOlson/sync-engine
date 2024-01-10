@@ -4,6 +4,7 @@ exports.TodoItemCreateInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 let TodoItemCreateInput = class TodoItemCreateInput {
+    id;
     text;
     complete;
     hidden;
@@ -11,6 +12,12 @@ let TodoItemCreateInput = class TodoItemCreateInput {
     updatedAt;
 };
 exports.TodoItemCreateInput = TodoItemCreateInput;
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", String)
+], TodoItemCreateInput.prototype, "id", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false

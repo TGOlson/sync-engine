@@ -3,7 +3,7 @@ import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { TodoItemWhereInput } from "../inputs/TodoItemWhereInput";
 export declare class TodoItemWhereUniqueInput {
-    id?: number | undefined;
+    id?: string | undefined;
     AND?: TodoItemWhereInput[] | undefined;
     OR?: TodoItemWhereInput[] | undefined;
     NOT?: TodoItemWhereInput[] | undefined;

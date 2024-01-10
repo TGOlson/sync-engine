@@ -1,5 +1,5 @@
 export declare class TodoItemMinAggregate {
-    id: number | null;
+    id: string | null;
     text: string | null;
     complete: boolean | null;
     hidden: boolean | null;

@@ -7,6 +7,7 @@ const BoolFieldUpdateOperationsInput_1 = require("../inputs/BoolFieldUpdateOpera
 const DateTimeFieldUpdateOperationsInput_1 = require("../inputs/DateTimeFieldUpdateOperationsInput");
 const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
 let TodoItemUpdateInput = class TodoItemUpdateInput {
+    id;
     text;
     complete;
     hidden;
@@ -14,6 +15,12 @@ let TodoItemUpdateInput = class TodoItemUpdateInput {
     updatedAt;
 };
 exports.TodoItemUpdateInput = TodoItemUpdateInput;
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput)
+], TodoItemUpdateInput.prototype, "id", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput, {
         nullable: true

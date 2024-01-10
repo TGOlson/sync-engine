@@ -1,25 +1,56 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { graphql } from 'relay-runtime';
+import { useLazyLoadQuery, useMutation } from 'react-relay';
 
 import Typography from '@mui/joy/Typography';
 import Card from '@mui/joy/Card';
 import Box from '@mui/joy/Box';
 import Checkbox from '@mui/joy/Checkbox';
 
-import { useAppDispatch, useAppSelector } from '../hooks';
-import { fetchTodos, updateTodo } from '../slices/todo-slice';
+import type {TodoListQuery as TodoListQueryType} from './__generated__/TodoListQuery.graphql';
+
+const TodoListQuery = graphql`
+  query TodoListQuery {
+    todoItems(orderBy: {createdAt: asc}) {
+      id
+      text
+      complete
+      hidden
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
+const UpdateTodoItemMutation = graphql`
+  mutation TodoListUpdateTodoItemMutation($id: String!, $complete: Boolean!) {
+    updateOneTodoItem(where: {id: $id}, data: {complete: {set: $complete}}) {
+      id
+      text
+      complete
+      hidden
+      createdAt
+      updatedAt
+    }
+  }
+`;
 
 const TodoList = () => {
-  const todos = useAppSelector((state) => state.todos.todos);
-  const dispatch = useAppDispatch();
+  const [commitMutation, _isMutationInFlight] = useMutation(UpdateTodoItemMutation);
 
-  useEffect(() => {
-    if (todos.length === 0) {
-      dispatch(fetchTodos());
-    }
-  }, []);
+  const data = useLazyLoadQuery<TodoListQueryType>(TodoListQuery, {});
+  const todos = data.todoItems;
 
-  const setComplete = (id: number, complete: boolean) => {
-    dispatch(updateTodo({id, update: {complete}}));
+  const setComplete = (id: string, complete: boolean) => {
+    commitMutation({
+      variables: {
+        id,
+        complete,
+      },
+      optimisticUpdater: (store) => {
+        store.get(id)?.setValue(complete, 'complete');
+      },
+    });
   };
   
   return (

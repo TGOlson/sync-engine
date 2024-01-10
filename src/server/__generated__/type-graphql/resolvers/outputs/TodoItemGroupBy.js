@@ -3,11 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TodoItemGroupBy = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
-const TodoItemAvgAggregate_1 = require("../outputs/TodoItemAvgAggregate");
 const TodoItemCountAggregate_1 = require("../outputs/TodoItemCountAggregate");
 const TodoItemMaxAggregate_1 = require("../outputs/TodoItemMaxAggregate");
 const TodoItemMinAggregate_1 = require("../outputs/TodoItemMinAggregate");
-const TodoItemSumAggregate_1 = require("../outputs/TodoItemSumAggregate");
 let TodoItemGroupBy = class TodoItemGroupBy {
     id;
     text;
@@ -16,17 +14,15 @@ let TodoItemGroupBy = class TodoItemGroupBy {
     createdAt;
     updatedAt;
     _count;
-    _avg;
-    _sum;
     _min;
     _max;
 };
 exports.TodoItemGroupBy = TodoItemGroupBy;
 tslib_1.__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
-    tslib_1.__metadata("design:type", Number)
+    tslib_1.__metadata("design:type", String)
 ], TodoItemGroupBy.prototype, "id", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => String, {
@@ -64,18 +60,6 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", TodoItemCountAggregate_1.TodoItemCountAggregate)
 ], TodoItemGroupBy.prototype, "_count", void 0);
-tslib_1.__decorate([
-    TypeGraphQL.Field(_type => TodoItemAvgAggregate_1.TodoItemAvgAggregate, {
-        nullable: true
-    }),
-    tslib_1.__metadata("design:type", TodoItemAvgAggregate_1.TodoItemAvgAggregate)
-], TodoItemGroupBy.prototype, "_avg", void 0);
-tslib_1.__decorate([
-    TypeGraphQL.Field(_type => TodoItemSumAggregate_1.TodoItemSumAggregate, {
-        nullable: true
-    }),
-    tslib_1.__metadata("design:type", TodoItemSumAggregate_1.TodoItemSumAggregate)
-], TodoItemGroupBy.prototype, "_sum", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => TodoItemMinAggregate_1.TodoItemMinAggregate, {
         nullable: true

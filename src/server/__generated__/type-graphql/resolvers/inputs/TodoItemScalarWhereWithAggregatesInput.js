@@ -5,7 +5,6 @@ const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const BoolWithAggregatesFilter_1 = require("../inputs/BoolWithAggregatesFilter");
 const DateTimeWithAggregatesFilter_1 = require("../inputs/DateTimeWithAggregatesFilter");
-const IntWithAggregatesFilter_1 = require("../inputs/IntWithAggregatesFilter");
 const StringWithAggregatesFilter_1 = require("../inputs/StringWithAggregatesFilter");
 let TodoItemScalarWhereWithAggregatesInput = class TodoItemScalarWhereWithAggregatesInput {
     AND;
@@ -38,10 +37,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Array)
 ], TodoItemScalarWhereWithAggregatesInput.prototype, "NOT", void 0);
 tslib_1.__decorate([
-    TypeGraphQL.Field(_type => IntWithAggregatesFilter_1.IntWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
         nullable: true
     }),
-    tslib_1.__metadata("design:type", IntWithAggregatesFilter_1.IntWithAggregatesFilter)
+    tslib_1.__metadata("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
 ], TodoItemScalarWhereWithAggregatesInput.prototype, "id", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {

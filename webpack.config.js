@@ -6,12 +6,7 @@ const common = {
     rules: [{
       test: /\.tsx?$/,
       exclude: /node_modules/,
-      use: {
-        loader: 'ts-loader',
-        options: {
-          onlyCompileBundledFiles: true,
-        }
-      },
+      use: 'babel-loader',
     }] 
   }
 };
@@ -20,7 +15,7 @@ const app = merge(common, {
   entry: path.resolve(__dirname, './src/app/index.tsx'),
   mode: 'development',
   target: 'web',
-  devtool: 'inline-source-map',
+  devtool: 'eval',
   output: {
     filename: 'app.bundle.js',
     path: path.resolve(__dirname, './dist'),
@@ -61,7 +56,7 @@ const server = merge(common, {
   entry: path.resolve(__dirname, './src/server/index.ts'),
   mode: 'development',
   target: 'node',
-  devtool: 'inline-source-map',
+  devtool: 'eval',
   output: {
     filename: 'server.bundle.js',
     path: path.resolve(__dirname, './dist')
@@ -69,6 +64,18 @@ const server = merge(common, {
   resolve: {
     extensions: ['.js', '.ts'],
   },
+  // Ignore these for now as they don't seem critical, and these deps might actually be removed soon
+  // If these deps continue to be used, we should fix these warnings
+  ignoreWarnings: [
+    {
+      module: /@whatwg-node/,
+      message: /the request of a dependency is an expression/,
+    },
+    {
+      module: /type-graphql/,
+      message: /the request of a dependency is an expression/,
+    },
+  ],
 });
 
 module.exports = [app, server];

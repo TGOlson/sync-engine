@@ -17,7 +17,7 @@ datasource db {
 }
 
 model TodoItem {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   text      String
   complete  Boolean
   hidden    Boolean

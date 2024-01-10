@@ -1,5 +1,5 @@
 export declare class TodoItem {
-    id: number;
+    id: string;
     text: string;
     complete: boolean;
     hidden: boolean;

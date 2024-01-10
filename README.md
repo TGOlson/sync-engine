@@ -14,7 +14,7 @@ Install deps
 $ npm install
 ```
 
-Run dev build
+Run dev build (note: required `watchman` to be installed for `relay-compiler --watch` subcommand)
 
 ```sh
 $ npm run dev

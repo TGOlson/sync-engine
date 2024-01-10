@@ -10,8 +10,6 @@ type Query {
 
 type AggregateTodoItem {
   _count: TodoItemCountAggregate
-  _avg: TodoItemAvgAggregate
-  _sum: TodoItemSumAggregate
   _min: TodoItemMinAggregate
   _max: TodoItemMaxAggregate
 }
@@ -26,16 +24,8 @@ type TodoItemCountAggregate {
   _all: Int!
 }
 
-type TodoItemAvgAggregate {
-  id: Float
-}
-
-type TodoItemSumAggregate {
-  id: Int
-}
-
 type TodoItemMinAggregate {
-  id: Int
+  id: String
   text: String
   complete: Boolean
   hidden: Boolean
@@ -49,7 +39,7 @@ The javascript `Date` as string. Type represents date and time as the ISO Date s
 scalar DateTime
 
 type TodoItemMaxAggregate {
-  id: Int
+  id: String
   text: String
   complete: Boolean
   hidden: Boolean
@@ -61,34 +51,12 @@ input TodoItemWhereInput {
   AND: [TodoItemWhereInput!]
   OR: [TodoItemWhereInput!]
   NOT: [TodoItemWhereInput!]
-  id: IntFilter
+  id: StringFilter
   text: StringFilter
   complete: BoolFilter
   hidden: BoolFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
-}
-
-input IntFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntFilter
-}
-
-input NestedIntFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntFilter
 }
 
 input StringFilter {
@@ -166,7 +134,7 @@ enum SortOrder {
 }
 
 input TodoItemWhereUniqueInput {
-  id: Int
+  id: String
   AND: [TodoItemWhereInput!]
   OR: [TodoItemWhereInput!]
   NOT: [TodoItemWhereInput!]
@@ -178,7 +146,7 @@ input TodoItemWhereUniqueInput {
 }
 
 type TodoItem {
-  id: Int!
+  id: String!
   text: String!
   complete: Boolean!
   hidden: Boolean!
@@ -196,15 +164,13 @@ enum TodoItemScalarFieldEnum {
 }
 
 type TodoItemGroupBy {
-  id: Int!
+  id: String!
   text: String!
   complete: Boolean!
   hidden: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
   _count: TodoItemCountAggregate
-  _avg: TodoItemAvgAggregate
-  _sum: TodoItemSumAggregate
   _min: TodoItemMinAggregate
   _max: TodoItemMaxAggregate
 }
@@ -217,10 +183,8 @@ input TodoItemOrderByWithAggregationInput {
   createdAt: SortOrder
   updatedAt: SortOrder
   _count: TodoItemCountOrderByAggregateInput
-  _avg: TodoItemAvgOrderByAggregateInput
   _max: TodoItemMaxOrderByAggregateInput
   _min: TodoItemMinOrderByAggregateInput
-  _sum: TodoItemSumOrderByAggregateInput
 }
 
 input TodoItemCountOrderByAggregateInput {
@@ -230,10 +194,6 @@ input TodoItemCountOrderByAggregateInput {
   hidden: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
-}
-
-input TodoItemAvgOrderByAggregateInput {
-  id: SortOrder
 }
 
 input TodoItemMaxOrderByAggregateInput {
@@ -254,63 +214,16 @@ input TodoItemMinOrderByAggregateInput {
   updatedAt: SortOrder
 }
 
-input TodoItemSumOrderByAggregateInput {
-  id: SortOrder
-}
-
 input TodoItemScalarWhereWithAggregatesInput {
   AND: [TodoItemScalarWhereWithAggregatesInput!]
   OR: [TodoItemScalarWhereWithAggregatesInput!]
   NOT: [TodoItemScalarWhereWithAggregatesInput!]
-  id: IntWithAggregatesFilter
+  id: StringWithAggregatesFilter
   text: StringWithAggregatesFilter
   complete: BoolWithAggregatesFilter
   hidden: BoolWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
-}
-
-input IntWithAggregatesFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntWithAggregatesFilter
-  _count: NestedIntFilter
-  _avg: NestedFloatFilter
-  _sum: NestedIntFilter
-  _min: NestedIntFilter
-  _max: NestedIntFilter
-}
-
-input NestedIntWithAggregatesFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntWithAggregatesFilter
-  _count: NestedIntFilter
-  _avg: NestedFloatFilter
-  _sum: NestedIntFilter
-  _min: NestedIntFilter
-  _max: NestedIntFilter
-}
-
-input NestedFloatFilter {
-  equals: Float
-  in: [Float!]
-  notIn: [Float!]
-  lt: Float
-  lte: Float
-  gt: Float
-  gte: Float
-  not: NestedFloatFilter
 }
 
 input StringWithAggregatesFilter {
@@ -345,6 +258,17 @@ input NestedStringWithAggregatesFilter {
   _count: NestedIntFilter
   _min: NestedStringFilter
   _max: NestedStringFilter
+}
+
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
 }
 
 input BoolWithAggregatesFilter {
@@ -401,6 +325,7 @@ type Mutation {
 }
 
 input TodoItemCreateInput {
+  id: String
   text: String!
   complete: Boolean!
   hidden: Boolean!
@@ -413,6 +338,7 @@ type AffectedRowsOutput {
 }
 
 input TodoItemUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
   text: StringFieldUpdateOperationsInput
   complete: BoolFieldUpdateOperationsInput
   hidden: BoolFieldUpdateOperationsInput
@@ -433,6 +359,7 @@ input DateTimeFieldUpdateOperationsInput {
 }
 
 input TodoItemUpdateInput {
+  id: StringFieldUpdateOperationsInput
   text: StringFieldUpdateOperationsInput
   complete: BoolFieldUpdateOperationsInput
   hidden: BoolFieldUpdateOperationsInput
