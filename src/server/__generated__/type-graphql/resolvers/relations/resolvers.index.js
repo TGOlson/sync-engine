@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserRelationsResolver = exports.PostHistoryRelationsResolver = exports.PostRelationsResolver = exports.CommentRelationsResolver = void 0;
+var CommentRelationsResolver_1 = require("./Comment/CommentRelationsResolver");
+Object.defineProperty(exports, "CommentRelationsResolver", { enumerable: true, get: function () { return CommentRelationsResolver_1.CommentRelationsResolver; } });
+var PostRelationsResolver_1 = require("./Post/PostRelationsResolver");
+Object.defineProperty(exports, "PostRelationsResolver", { enumerable: true, get: function () { return PostRelationsResolver_1.PostRelationsResolver; } });
+var PostHistoryRelationsResolver_1 = require("./PostHistory/PostHistoryRelationsResolver");
+Object.defineProperty(exports, "PostHistoryRelationsResolver", { enumerable: true, get: function () { return PostHistoryRelationsResolver_1.PostHistoryRelationsResolver; } });
+var UserRelationsResolver_1 = require("./User/UserRelationsResolver");
+Object.defineProperty(exports, "UserRelationsResolver", { enumerable: true, get: function () { return UserRelationsResolver_1.UserRelationsResolver; } });

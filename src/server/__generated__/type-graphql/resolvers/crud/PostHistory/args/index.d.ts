@@ -1,0 +1,13 @@
+export { AggregatePostHistoryArgs } from "./AggregatePostHistoryArgs";
+export { CreateOnePostHistoryArgs } from "./CreateOnePostHistoryArgs";
+export { DeleteManyPostHistoryArgs } from "./DeleteManyPostHistoryArgs";
+export { DeleteOnePostHistoryArgs } from "./DeleteOnePostHistoryArgs";
+export { FindFirstPostHistoryArgs } from "./FindFirstPostHistoryArgs";
+export { FindFirstPostHistoryOrThrowArgs } from "./FindFirstPostHistoryOrThrowArgs";
+export { FindManyPostHistoryArgs } from "./FindManyPostHistoryArgs";
+export { FindUniquePostHistoryArgs } from "./FindUniquePostHistoryArgs";
+export { FindUniquePostHistoryOrThrowArgs } from "./FindUniquePostHistoryOrThrowArgs";
+export { GroupByPostHistoryArgs } from "./GroupByPostHistoryArgs";
+export { UpdateManyPostHistoryArgs } from "./UpdateManyPostHistoryArgs";
+export { UpdateOnePostHistoryArgs } from "./UpdateOnePostHistoryArgs";
+export { UpsertOnePostHistoryArgs } from "./UpsertOnePostHistoryArgs";

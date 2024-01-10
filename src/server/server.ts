@@ -17,7 +17,6 @@ export const generateSchema = async () => {
   });
 };
 
-
 export const startServer = async () => {
   const schema = await generateSchema();
   

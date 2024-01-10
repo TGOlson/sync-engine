@@ -1,5 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TodoItemCrudResolver = void 0;
-var TodoItemCrudResolver_1 = require("./TodoItem/TodoItemCrudResolver");
-Object.defineProperty(exports, "TodoItemCrudResolver", { enumerable: true, get: function () { return TodoItemCrudResolver_1.TodoItemCrudResolver; } });
+exports.UserCrudResolver = exports.PostHistoryCrudResolver = exports.PostCrudResolver = exports.CommentCrudResolver = void 0;
+var CommentCrudResolver_1 = require("./Comment/CommentCrudResolver");
+Object.defineProperty(exports, "CommentCrudResolver", { enumerable: true, get: function () { return CommentCrudResolver_1.CommentCrudResolver; } });
+var PostCrudResolver_1 = require("./Post/PostCrudResolver");
+Object.defineProperty(exports, "PostCrudResolver", { enumerable: true, get: function () { return PostCrudResolver_1.PostCrudResolver; } });
+var PostHistoryCrudResolver_1 = require("./PostHistory/PostHistoryCrudResolver");
+Object.defineProperty(exports, "PostHistoryCrudResolver", { enumerable: true, get: function () { return PostHistoryCrudResolver_1.PostHistoryCrudResolver; } });
+var UserCrudResolver_1 = require("./User/UserCrudResolver");
+Object.defineProperty(exports, "UserCrudResolver", { enumerable: true, get: function () { return UserCrudResolver_1.UserCrudResolver; } });

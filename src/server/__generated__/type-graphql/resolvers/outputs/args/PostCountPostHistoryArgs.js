@@ -1,0 +1,19 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PostCountPostHistoryArgs = void 0;
+const tslib_1 = require("tslib");
+const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
+const PostHistoryWhereInput_1 = require("../../inputs/PostHistoryWhereInput");
+let PostCountPostHistoryArgs = class PostCountPostHistoryArgs {
+    where;
+};
+exports.PostCountPostHistoryArgs = PostCountPostHistoryArgs;
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => PostHistoryWhereInput_1.PostHistoryWhereInput, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", PostHistoryWhereInput_1.PostHistoryWhereInput)
+], PostCountPostHistoryArgs.prototype, "where", void 0);
+exports.PostCountPostHistoryArgs = PostCountPostHistoryArgs = tslib_1.__decorate([
+    TypeGraphQL.ArgsType()
+], PostCountPostHistoryArgs);

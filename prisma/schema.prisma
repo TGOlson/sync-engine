@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -16,11 +13,46 @@ datasource db {
   url      = "file:../sqlite/dev.db"
 }
 
-model TodoItem {
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  posts     Post[]
+  comments  Comment[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Post {
+  id          String   @id @default(uuid())
+  published   Boolean
+  postHistory PostHistory[]
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    String
+  comments    Comment[]
+  likes       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+}
+
+model PostHistory {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Comment {
   id        String   @id @default(uuid())
   text      String
-  complete  Boolean
-  hidden    Boolean
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String
+  likes     Int
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }

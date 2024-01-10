@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserCountPostsArgs = exports.UserCountCommentsArgs = exports.PostCountPostHistoryArgs = exports.PostCountCommentsArgs = void 0;
+var PostCountCommentsArgs_1 = require("./PostCountCommentsArgs");
+Object.defineProperty(exports, "PostCountCommentsArgs", { enumerable: true, get: function () { return PostCountCommentsArgs_1.PostCountCommentsArgs; } });
+var PostCountPostHistoryArgs_1 = require("./PostCountPostHistoryArgs");
+Object.defineProperty(exports, "PostCountPostHistoryArgs", { enumerable: true, get: function () { return PostCountPostHistoryArgs_1.PostCountPostHistoryArgs; } });
+var UserCountCommentsArgs_1 = require("./UserCountCommentsArgs");
+Object.defineProperty(exports, "UserCountCommentsArgs", { enumerable: true, get: function () { return UserCountCommentsArgs_1.UserCountCommentsArgs; } });
+var UserCountPostsArgs_1 = require("./UserCountPostsArgs");
+Object.defineProperty(exports, "UserCountPostsArgs", { enumerable: true, get: function () { return UserCountPostsArgs_1.UserCountPostsArgs; } });

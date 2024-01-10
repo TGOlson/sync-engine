@@ -1,11 +1,15 @@
 import * as crudResolvers from "./resolvers/crud/resolvers-crud.index";
 import * as argsTypes from "./resolvers/crud/args.index";
+import * as relationResolvers from "./resolvers/relations/resolvers.index";
 import * as models from "./models";
 import * as outputTypes from "./resolvers/outputs";
 import * as inputTypes from "./resolvers/inputs";
 export type MethodDecoratorOverrideFn = (decorators: MethodDecorator[]) => MethodDecorator[];
 declare const crudResolversMap: {
-    TodoItem: typeof crudResolvers.TodoItemCrudResolver;
+    User: typeof crudResolvers.UserCrudResolver;
+    Post: typeof crudResolvers.PostCrudResolver;
+    PostHistory: typeof crudResolvers.PostHistoryCrudResolver;
+    Comment: typeof crudResolvers.CommentCrudResolver;
 };
 type ResolverModelNames = keyof typeof crudResolversMap;
 type ModelResolverActionNames<TModel extends ResolverModelNames> = keyof typeof crudResolversMap[TModel]["prototype"];
@@ -29,6 +33,21 @@ export type ArgsTypesEnhanceMap = {
     [TArgsType in ArgsTypesNames]?: ArgConfig<TArgsType>;
 };
 export declare function applyArgsTypesEnhanceMap(argsTypesEnhanceMap: ArgsTypesEnhanceMap): void;
+declare const relationResolversMap: {
+    User: typeof relationResolvers.UserRelationsResolver;
+    Post: typeof relationResolvers.PostRelationsResolver;
+    PostHistory: typeof relationResolvers.PostHistoryRelationsResolver;
+    Comment: typeof relationResolvers.CommentRelationsResolver;
+};
+type RelationResolverModelNames = keyof typeof relationResolversMap;
+type RelationResolverActionNames<TModel extends RelationResolverModelNames> = keyof typeof relationResolversMap[TModel]["prototype"];
+export type RelationResolverActionsConfig<TModel extends RelationResolverModelNames> = Partial<Record<RelationResolverActionNames<TModel>, MethodDecorator[] | MethodDecoratorOverrideFn>> & {
+    _all?: MethodDecorator[];
+};
+export type RelationResolversEnhanceMap = {
+    [TModel in RelationResolverModelNames]?: RelationResolverActionsConfig<TModel>;
+};
+export declare function applyRelationResolversEnhanceMap(relationResolversEnhanceMap: RelationResolversEnhanceMap): void;
 export type PropertyDecoratorOverrideFn = (decorators: PropertyDecorator[]) => PropertyDecorator[];
 type FieldsConfig<TTypeKeys extends string = string> = Partial<Record<TTypeKeys, PropertyDecorator[] | PropertyDecoratorOverrideFn>> & {
     _all?: PropertyDecorator[];

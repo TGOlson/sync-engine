@@ -1,0 +1,33 @@
+import type { GraphQLResolveInfo } from "graphql";
+import { AggregatePostHistoryArgs } from "./args/AggregatePostHistoryArgs";
+import { CreateOnePostHistoryArgs } from "./args/CreateOnePostHistoryArgs";
+import { DeleteManyPostHistoryArgs } from "./args/DeleteManyPostHistoryArgs";
+import { DeleteOnePostHistoryArgs } from "./args/DeleteOnePostHistoryArgs";
+import { FindFirstPostHistoryArgs } from "./args/FindFirstPostHistoryArgs";
+import { FindFirstPostHistoryOrThrowArgs } from "./args/FindFirstPostHistoryOrThrowArgs";
+import { FindManyPostHistoryArgs } from "./args/FindManyPostHistoryArgs";
+import { FindUniquePostHistoryArgs } from "./args/FindUniquePostHistoryArgs";
+import { FindUniquePostHistoryOrThrowArgs } from "./args/FindUniquePostHistoryOrThrowArgs";
+import { GroupByPostHistoryArgs } from "./args/GroupByPostHistoryArgs";
+import { UpdateManyPostHistoryArgs } from "./args/UpdateManyPostHistoryArgs";
+import { UpdateOnePostHistoryArgs } from "./args/UpdateOnePostHistoryArgs";
+import { UpsertOnePostHistoryArgs } from "./args/UpsertOnePostHistoryArgs";
+import { PostHistory } from "../../../models/PostHistory";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregatePostHistory } from "../../outputs/AggregatePostHistory";
+import { PostHistoryGroupBy } from "../../outputs/PostHistoryGroupBy";
+export declare class PostHistoryCrudResolver {
+    aggregatePostHistory(ctx: any, info: GraphQLResolveInfo, args: AggregatePostHistoryArgs): Promise<AggregatePostHistory>;
+    createOnePostHistory(ctx: any, info: GraphQLResolveInfo, args: CreateOnePostHistoryArgs): Promise<PostHistory>;
+    deleteManyPostHistory(ctx: any, info: GraphQLResolveInfo, args: DeleteManyPostHistoryArgs): Promise<AffectedRowsOutput>;
+    deleteOnePostHistory(ctx: any, info: GraphQLResolveInfo, args: DeleteOnePostHistoryArgs): Promise<PostHistory | null>;
+    findFirstPostHistory(ctx: any, info: GraphQLResolveInfo, args: FindFirstPostHistoryArgs): Promise<PostHistory | null>;
+    findFirstPostHistoryOrThrow(ctx: any, info: GraphQLResolveInfo, args: FindFirstPostHistoryOrThrowArgs): Promise<PostHistory | null>;
+    postHistories(ctx: any, info: GraphQLResolveInfo, args: FindManyPostHistoryArgs): Promise<PostHistory[]>;
+    postHistory(ctx: any, info: GraphQLResolveInfo, args: FindUniquePostHistoryArgs): Promise<PostHistory | null>;
+    getPostHistory(ctx: any, info: GraphQLResolveInfo, args: FindUniquePostHistoryOrThrowArgs): Promise<PostHistory | null>;
+    groupByPostHistory(ctx: any, info: GraphQLResolveInfo, args: GroupByPostHistoryArgs): Promise<PostHistoryGroupBy[]>;
+    updateManyPostHistory(ctx: any, info: GraphQLResolveInfo, args: UpdateManyPostHistoryArgs): Promise<AffectedRowsOutput>;
+    updateOnePostHistory(ctx: any, info: GraphQLResolveInfo, args: UpdateOnePostHistoryArgs): Promise<PostHistory | null>;
+    upsertOnePostHistory(ctx: any, info: GraphQLResolveInfo, args: UpsertOnePostHistoryArgs): Promise<PostHistory>;
+}
