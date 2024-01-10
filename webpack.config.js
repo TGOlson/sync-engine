@@ -6,7 +6,12 @@ const common = {
     rules: [{
       test: /\.tsx?$/,
       exclude: /node_modules/,
-      use: 'babel-loader',
+      use: {
+        loader: 'ts-loader',
+        options: {
+          onlyCompileBundledFiles: true,
+        }
+      },
     }] 
   }
 };
