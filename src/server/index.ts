@@ -1,31 +1,24 @@
-import "reflect-metadata";
-import { createServer } from "node:http";
-import { createYoga } from "graphql-yoga";
-import { buildSchema } from "type-graphql";
-import { PrismaClient } from '@prisma/client';
+import path from "path";
+import { writeFile } from "fs/promises";
+import { printSchema } from "graphql";
 
-import { resolvers } from "../../prisma/generated/type-graphql";
+import { generateSchema, startServer } from "./server";
 
-const prisma = new PrismaClient();
 
-const PORT = 3000;
+const main = async () => {
+  const [_, __, cmd] = process.argv;
 
-const startServer = async () => {
-  const schema = await buildSchema({
-    resolvers: resolvers,
-    validate: false,
-  });
-  
-  const yoga = createYoga({ 
-    schema,
-    context: () => ({ prisma }),
-  });
-  
-  const server = createServer(yoga);
+  switch (cmd) {
+    case undefined: return await startServer();
+    case "--generate-schema": {
+      const schema = await generateSchema();
+      const p = path.resolve(__dirname, '../src/server/__generated__/schema.graphql');
 
-  server.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-  });
+      return await writeFile(p, printSchema(schema));
+    }
+    default:
+      console.log("Unknown server command.");
+  }
 };
 
-startServer();
+main();

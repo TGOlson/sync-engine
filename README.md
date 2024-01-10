@@ -37,3 +37,11 @@ $ npx prisma migrate dev --name <migration name>
 ```sh
 $ npx prisma generate
 ```
+
+3. To generate a graphql schema:
+
+```sh
+$ node dist/server.bundle.js --generate-schema
+```
+
+TODO: should automate some of these steps in the build pipeline
