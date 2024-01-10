@@ -14,7 +14,7 @@ Install deps
 $ npm install
 ```
 
-Run dev build (note: required `watchman` to be installed for `relay-compiler --watch` subcommand)
+Run dev build.
 
 ```sh
 $ npm run dev
@@ -38,10 +38,10 @@ $ npx prisma migrate dev --name <migration name>
 $ npx prisma generate
 ```
 
-3. To generate a graphql schema:
+3. To generate graphql types from queries. (note: server needs to be runnning)
 
 ```sh
-$ node dist/server.bundle.js --generate-schema
+$ npm run codegen
 ```
 
 TODO: should automate some of these steps in the build pipeline
