@@ -58,13 +58,25 @@ const CreateTodo = () => {
         complete: false,
         hidden: false,
       },
-      optimisticUpdater: (store) => {
-        // window.store = store; // tslint:disable-line
-        store.create('temp-id-1', 'TodoItem')
-          .setValue(todoText, 'text')
-          .setValue(false, 'complete')
-          .setValue(false, 'hidden');
-      },
+      updater: (store) => {
+        const newTodo = store.getRootField('createOneTodoItem');
+        // store.
+        const root = store.getRoot();
+        const todoItems = root.getLinkedRecords('todoItems');
+        // const allTodoItems = todoItems?.concat([newTodo]);
+        root.setLinkedRecords([...todoItems, newTodo], 'todoItems');
+      }
+      // onCompleted(response, errors) {
+      //   console.log('response', response);
+      //   console.log('errors', errors);
+      // }
+      // ,: (store) => {
+      //   // window.store = store; // tslint:disable-line
+      //   store.create('temp-id-1', 'TodoItem')
+      //     .setValue(todoText, 'text')
+      //     .setValue(false, 'complete')
+      //     .setValue(false, 'hidden');
+      // },
     });
 
     setTodoText('');
